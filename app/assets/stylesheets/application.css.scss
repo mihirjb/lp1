@@ -287,13 +287,29 @@ div#footer ul.footer-links
 {
 	list-style:none;
 	float:left;
-	width:50%;
+	width:48%;
+	margin:1%;
+}
+div#footer ul.footer-links h4, div#footer ul.support-links 
+{
+	text-align:left;
+}
+div#footer ul.support-links 
+{
+	list-style:none;
+	float:right;
+	width:18%;
 	margin:1%;
 }
 div#footer ul li
 {
 	float:left;
 	padding:10px;
+}
+div#footer ul.support-links li 
+{
+	float:none;
+	padding:5px;
 }
 div#footer ul.footer-links a
 {
@@ -305,8 +321,14 @@ div#footer ul.footer-links a
 div#footer div#credits 
 {
 	clear:both;
-	height:50px;
 	background-color:#222;
+}
+div#footer div#credits p
+{
+	color:#555;
+	font-size:12px;
+	padding:15px 0px;
+	margin:0;
 }
 div#footer ul li a img
 {
