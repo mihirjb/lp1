@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phonesalad</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+<div id="footer" class="offshadow">
+	<ul class="footer-links">
+		<li><a href="http://www.twitter.com/phonesalad"><img src="../tweetbtn.png" /></a></li>
+		<li><a href="#"><img src="../fbbtn.png" /></a></li>
+		<li><a href="#"><img src="../gplusbtn.png" /></a></li>
+		<li><a href=""><img src="../linkedin.png" /></a></li>
+	</ul>
+	<div id="credits"></div>
+</div>
+</body>
+</html>
