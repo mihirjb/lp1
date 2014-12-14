@@ -15,9 +15,6 @@ class SignupsController < ApplicationController
        else
          render action: 'new' , :notice => "Sign up failed"
        end
-
-     end
-
   end
   
     private 
