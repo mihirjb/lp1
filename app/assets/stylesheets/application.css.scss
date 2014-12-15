@@ -235,7 +235,7 @@ form
 {
 	margin:30px;
 }
-input[type="text"], input[type="email"] {
+input[type="text"], input[type="email"],input[type="password"]{
     width: 206px;
 	height:40px;
 	display:block;
@@ -251,7 +251,7 @@ input[type="text"], input[type="email"] {
 	-webkit-appearance:none;
 	border-radius:2px;
 }
-.sun-flower-button {
+.sun-flower-button, input[type="button"] {
   position: relative;
   vertical-align: top;
   color: #222;
