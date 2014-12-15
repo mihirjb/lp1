@@ -1,4 +1,7 @@
 class SignupsController < ApplicationController
+  
+  before_filter :authenticate_admin!, :only => :index
+  
   def index
     @signups = Signup.all
   end
