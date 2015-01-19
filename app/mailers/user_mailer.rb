@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "notifications@zalpe.com"
+  default :from => "notifications@phonesalad.com"
 
    def order_confirmation(seller, buyer, order)
      @order = order
@@ -16,13 +16,13 @@ class UserMailer < ActionMailer::Base
    
    def listing_modification(listing)
       @listing = listing
-      mail(:to => "#{listing.paypalemail}", :subject => "Modify your listing at zalpe.com")
+      mail(:to => "#{listing.paypalemail}", :subject => "Modify your listing at phonesalad.com")
 
     end
      def new_comment(listing,user)
         @listing = listing
         @user = user
-        mail(:to => "#{user.email}", :subject => "New comment on your listing on zalpe.com")
+        mail(:to => "#{user.email}", :subject => "New comment on your listing on phonesalad.com")
 
       end
     
