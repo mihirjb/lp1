@@ -1,0 +1,102 @@
+<% content_for :title, "Buy and sell mobile phones in Singapore" %>
+<section class="show silver-color">
+<div class=" container">
+
+
+<div class="row">
+<div class="col-md-5">
+	<div class="summary white-color offshadow">
+		<div class="center-image row">
+			<div class="col-md-4 col-sm-6 col-xs-12">
+			<%= image_tag @profile.avatar.url(:thumb)%>
+		</div>
+		<div class="col-md-8 col-sm-6 col-xs-12">
+			<div class="row cushion">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+					<h4><a href="/profiles/<%=@profile.id%>"><%= @user.firstname%></a></h4>
+					</div>
+
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					Member Since:<br/><%= @profile.created_at.to_date %>
+				</div>
+
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					Last seen on:<br/><%= time_ago_in_words(@user.last_sign_in_at) %> ago
+				</div>
+		
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					Reviews:<br/> 
+					<span class="upvote"><%= Vote.where('voteable_id =? AND vote =?', @profile.id, true).count %></span> <span class="glyphicon glyphicon-thumbs-up"></span>
+					<span class="downvote"><%= Vote.where('voteable_id =? AND vote =?', @profile.id, false).count %> </span><span class="glyphicon glyphicon-thumbs-down gray"></span>
+				</div>
+			
+				
+			</div>
+		
+		</div>
+		</div>
+	
+		
+	</div>
+	
+</div>
+<div class="col-md-7">
+<div class="white-color offshadow cushion listing-detail">
+	<h2 class="listing-heading">All the active listings from <span class="propernoun"><%= @user.firstname  %></span></h2>
+	<hr class="gray">
+		<ul class="review-list">
+		<% @listings.each do |l| %>
+		<li>
+		<a href="/listings/<%=l.id%>"><h4>
+		<%= l.devicename %> | <%= l.devicecolor %> | <%= l.devicestorage %> | <%= l.devicecondition %> for <%= l.askprice.to_i + 20 %> SGD</h4></a>
+		</li>
+		<% end %>
+		</ul>
+</div>
+</div>
+
+
+<div class="col-md-12">
+<div class="white-color offshadow cushion">
+
+<h2>All the feedback <span class="propernoun"><%= @user.firstname  %></span> has got!!
+	<span class="pull-right">
+		<span class="upvote"><%= Vote.where('voteable_id =? AND vote =?', @profile.id, true).count %></span> <span class="glyphicon glyphicon-thumbs-up"></span>
+		<span class="downvote"><%= Vote.where('voteable_id =? AND vote =?', @profile.id, false).count %> </span><span class="glyphicon glyphicon-thumbs-down"></span>
+		
+		
+		</span>	
+</h2>
+<hr class="gray">
+
+	<ul class="review-list">
+	<% @feedbacks.each do |feedback| %>
+<li
+<% if feedback.thumbsup == true 
+	@class = "green"
+else
+	@class = "red"
+end
+	%>
+	class="<%=@class%>"
+>
+	<% cache feedback do %>
+	<h4><%= image_tag Profile.where('user_id = ?',feedback.author_id).first.avatar.url('thumb'), :class=>"owner-image img-circle"  %>
+	<%= feedback.reviewbody %></h4>
+	<% end %>
+		
+	</li>
+	<% end %>
+	</ul>
+
+</div>
+</div>
+
+
+</div>
+
+
+
+</div>
+</section>
+

@@ -1,0 +1,20 @@
+<% @listings.each do |l| %>
+<a href="/listings/<%=l.id %>">	
+<div class="single-listing">
+<div class="row">
+	<div class="col-md-1">
+		<%=image_tag Profile.where('user_id = ?',l.user_id).first.avatar.url(:mini), :class => "main-avatar small-img owner-image" %>
+	</div>
+	<div class="col-md-7 col-sm-7 col-xs-12"><h2><%= l.headline %></h2>
+		<p><%= l.description %></p>
+	</div>
+	<div class="col-md-4">
+			<a href="../listings/<%=l.id%>" class="btn btn-sm red-color pull-right">$<%= l.askprice.to_i + 20 %></a>
+	</div>
+</div>
+<div class="row summary">
+	<div class="col-md-12 col-sm-12 col-xs-12 "><%= @phone.modelname %> | <%= l.devicecolor %> | <%= l.devicestorage %> | <%= l.devicecondition %> | <%= l.itemlocation %> | Accessories: <%= l.accessories %></div>
+</div>
+</div>
+</a>
+<% end %>

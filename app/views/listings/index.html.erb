@@ -1,0 +1,61 @@
+<% content_for :title,  "Buy and sell phones and tablets in Singapore" %>
+<section class="long-form-section">
+	<div class="header silver-color offshadow">
+		<h1 class="page-title auth-form-heading">All your listings</h1>
+</div>
+<div class="container">	
+
+	
+								<div class="table-responsive cushion" id="listings">
+								<table class="table table-condensed">
+									<tr class="active">
+										<th>Image</th>
+										<th>Title</th>
+										<th>Price</th>
+										<th>Status</th>
+									</tr>
+									<% @listings.each do |dlisting| 
+										
+										if dlisting.status == "Approved"
+										
+										%>
+
+									<tr  class='<%=
+									@class = ""
+										if dlisting.status == "Approved"
+										@class = "active"
+									end
+									if
+										dlisting.status == "Pending"
+										@class = "danger"
+									end
+									if dlisting.status == "Sold"
+										@class = "success"
+									end
+
+									 @class %>'><td><%= image_tag dlisting.assets.first.image.url('thumb') unless dlisting.assets.first.nil? %></td>
+
+									<td>
+										<a href ="/listings/<%=dlisting.id%>">
+									<%= dlisting.headline %>
+									</a>
+
+									</td>
+									<td>
+
+
+								<%= dlisting.askprice.to_i + 20 %></td>
+										<td>
+											<%= dlisting.status %>
+											</td>
+
+										</tr>
+									<% end %>
+									<% end %>
+									
+									</table>			
+							</div>
+	
+	
+			</div>
+			</section>

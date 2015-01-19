@@ -1,21 +1,21 @@
-<div class="outer">
-					<div class="pane">							
-						<div class="centered-text section centered-400 rounded offshadow">
-		
-	<h1 class="hero">Forgot your password?</h1>
-<hr class="gray">
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<section class="red-color auth-form-section full-height">
+		<div class="hero-content container">
+		<h1 class="page-heading auth-form-heading">forgot your password?</h1>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {class:"auth-form", :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true %>
+  <p>
+  <%= f.email_field :email,:placeholder => "Enter your email address", :autofocus => true %></p>
 
+<br/>
 
-<%= f.submit "Send me reset password instructions", :class=> "btn btn-success btn-lg" %>
+<p><%= f.submit "Send me reset password instructions", :class=> "btn btn-sm black-flat-btn" %></p>
+<div class="form-links">
+	<a href="/users/sign_up">» Haven't signed up yet?</a>
+	<a href="/users/sign_in">» Sign in</a>
+</div>
 <% end %>
 <br/><br/>
-<%= render "devise/shared/links" %>
 
 </div>
-</div>
-</div>
+</section>

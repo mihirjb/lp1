@@ -1,31 +1,30 @@
-<div class="outer">
-					<div class="pane">							
-						<div class="centered-text section centered-400 rounded offshadow">
-		<h2>Change your password</h2>
-			<hr class="gray">
-		
+<section class="red-color auth-form-section full-height">
+		<div class="hero-content container">
+		<h1 class="page-heading auth-form-heading">change your password</h1>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {class:"auth-form", :method => :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <%= f.label :password, "New password" %>
-  <%= f.password_field :password, :autofocus => true, :class=> "form-control" %>
+  <p><%= f.label :password, "New password" %>
+  <%= f.password_field :password, :autofocus => true, :class=> "form-control" %></p>
 
-  <%= f.label :password_confirmation, "Confirm new password", :class=> "form-control" %>
+  <p><%= f.label :password_confirmation, "Confirm new password", :class=> "form-control" %></p>
   <%= f.password_field :password_confirmation %>
 
 	<hr class="gray">
 
-<%= f.submit "Change my password", :class=> "btn btn-success" %>
+<p><%= f.submit "Change my password", :class=> "btn btn-sm black-flat-btn" %></p>
+<div class="form-links">
+	<a href="/users/sign_up">» Haven't signed up yet?</a>
+	<a href="/users/sign_in">» Sign in</a>
+</div>
 <% end %>
 
 <br/>
 <br/>
-<%= render "devise/shared/links" %>
 
 
 
 </div>
-</div>
-</div>
+</section>

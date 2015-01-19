@@ -1,0 +1,36 @@
+<section class="silver-color">
+	<div class="container softshadow">
+		<div class="info-bar">
+			<h1 class="listing-heading">All the phones without images</h1>
+			<p><%= @count %> to go!</p>
+		</div>
+	</div>
+<div class="container white-color softshadow">
+				<div class="table-responsive cushion" id="listings">
+				<table class="table table-condensed">
+					<tr class="active">
+						<th class="col-md-6">Phone Name</th>
+						<th class="col-md-6">Edit button</th>
+					</tr>
+					<% @phones.each do |p| 
+						
+						if !p.image.exists?
+						
+						%>
+
+					<tr><td><%=p.modelname%></td>
+
+					<td>
+						<a class="btn btn-sm btn-success" href ="/phones/<%=p.id%>/edit">
+					Edit
+					</a>
+
+					</td>
+						</tr>
+					<% end %>
+					<% end %>
+					
+					</table>			
+			</div>
+	</div>
+</section>

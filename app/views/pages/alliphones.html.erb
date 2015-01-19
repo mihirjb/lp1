@@ -1,0 +1,14 @@
+<% content_for :title,  "iPhones for sale in Singapore" %>
+
+	<section class="long-form-section">
+		<div class="header silver-color offshadow">
+			<h1 class="page-title">All iPhones</h1>
+	</div>
+	<div class="container">
+		<div class="row">
+			<%= render partial: 'pages/phone' %>
+		</div>
+			<div class="cushion">
+			<%= will_paginate @phones, renderer: BootstrapPagination::Rails  %>
+		</div>
+	</section>
